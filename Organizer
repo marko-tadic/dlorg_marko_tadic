@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+TARGET_DIR="$HOME/Dokument/github/dlorg_marko_tadic/Downloads"
+
+# make directory -p(arent)
+mkdir -p "$TARGET_DIR"/{docs,images,text,pdfs,videos,audio,archives,installers,code,other}
+
+echo "Monitoring $TARGET_DIR for new files..."
+
+# -m(onitor), to monitor continuously
+# -e(vent), listen to specific events. in this case create and moved_to, so whenever a file is created or moved into this directory, inotify reacts.
+inotifywait -m -e create -e moved_to --format "%f" "$TARGET_DIR" | while 
+read -r FILENAME; do
+    echo "$FILENAME"
+done 
+
+sleep 1
+
+FILE_PATH="$TARGET_DIR/$FILENAME"
+
+# -d(irectory) to check if it is a directory. ! -f(ile) to check it's not a regular file. ensures it only processes standard files.
+if [ -d "$FILE_PATH" ] || [ ! -f "$FILE_PATH" ]; then
+    continue
+fi
+
+case "$EXT" in
+    docx|doc|xlsx|xls|pptx|ppt|odt|rtf)
+        DEST="docs"
+        ;;
+    jpg|jpeg|png|gif|bmp|svg|webp)
+        DEST="images"
+        ;;
+    pdf)
+        DEST="pdfs"
+        ;;
+    txt|md|rtf)
+        DEST="text"
+        ;;
+    mp4|mkv|avi|mov|wmv)
+        DEST="videos"
+        ;;
+        
