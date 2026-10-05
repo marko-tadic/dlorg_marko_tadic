@@ -9,19 +9,19 @@ echo "Monitoring $TARGET_DIR for new files..."
 
 # -m(onitor), to monitor continuously
 # -e(vent), listen to specific events. in this case create and moved_to, so whenever a file is created or moved into this directory, inotify reacts.
-inotifywait -m -e create -e moved_to --format "%f" "$TARGET_DIR" | while 
-read -r FILENAME; do
-    echo "$FILENAME"
-done 
-
+inotifywait -m -e close_write -e moved_to --exclude "(docs|images|pdfs|text|videos|audio|installers|archives|code|other)" --format '%f' "$TARGET_DIR" | while IFS= read -r FILENAME; do   
 sleep 1
 
 FILE_PATH="$TARGET_DIR/$FILENAME"
 
 # -d(irectory) to check if it is a directory. ! -f(ile) to check it's not a regular file. ensures it only processes standard files.
-if [ -d "$FILE_PATH" ] || [ ! -f "$FILE_PATH" ]; then
-    continue
+
+if [ ! -f "$FILE_PATH" ]; then
+        continue
 fi
+
+EXT="${FILENAME##*.}"
+EXT=$(echo "$EXT" | tr '[:upper:]' '[:lower:]')
 
 case "$EXT" in
     docx|doc|xlsx|xls|pptx|ppt|odt|rtf)
@@ -39,4 +39,26 @@ case "$EXT" in
     mp4|mkv|avi|mov|wmv)
         DEST="videos"
         ;;
-        
+    mp3|wav|flac|m4a|aac)
+        DEST="audio"
+        ;;
+    exe|msi|deb)
+        DEST="installers"
+        ;;
+    zip|tar|gz|rar|7z)
+        DEST="archives"
+        ;;
+    py|js|html|css|cpp|sh)
+        DEST="code"
+        ;;
+    *)
+        DEST="other"
+        ;;
+esac
+
+    mv "$FILE_PATH" "$TARGET_DIR/$DEST/"
+    echo "Moved: $FILENAME -> $DEST/"
+done        
+
+# CTRL + C to kill script
+
