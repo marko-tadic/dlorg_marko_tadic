@@ -55,6 +55,8 @@ case "$EXT" in
         DEST="other"
         ;;
 esac
+    # Create a directory if it was deleted
+    mkdir -p "$TARGET_DIR/$DEST"
 
     mv "$FILE_PATH" "$TARGET_DIR/$DEST/"
     echo "Moved: $FILENAME -> $DEST/"
