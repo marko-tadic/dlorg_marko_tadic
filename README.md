@@ -8,8 +8,11 @@ echo -e "\e[4Linux lab 2026\e[0m"
 
 ## Features
 
-**Real-time monitoring:** Uses ´inotifywait' to actively monitor the downloads folder for newly created files or files moved to the directory and processes them instantly.
-**Smart Categorization:** Automatically routes files into 9 distinct directories:
+**Real-time monitoring:** 
+Uses ´inotifywait' to actively monitor the downloads folder for newly created files or files moved to the directory and processes them instantly.
+
+**Smart Categorization:**
+Automatically routes files into 9 distinct directories:
 `docs` (Word, Excel, PowerPoint, etc.)
 `images` (JPG, PNG, GIF, SVG, etc.)
 `pdfs` (PDF documents)
@@ -19,8 +22,12 @@ echo -e "\e[4Linux lab 2026\e[0m"
 `installers` (EXE, MSI, DEB)
 `archives` (ZIP, TAR, RAR, 7z)
 `code` (Python, JS, HTML, C++, etc.)
-**Loop Protection:**Automatically ignores changes inside its destination subdirectories to prevent endless processing loops.
-**Safe Validation:** Checks to ensure incoming files are valid beofore attempting to categorize them.
+
+**Loop Protection:**
+Automatically ignores changes inside its destination subdirectories to prevent endless processing loops.
+
+**Safe Validation:** 
+Checks to ensure incoming files are valid beofore attempting to categorize them.
 
 ## Prerequisites
 
