@@ -35,4 +35,7 @@ Before running the script in **Git Bash**, make sure you have `inotify-tools` pa
 
 ## Installation & Setup
 
+1. Navigate to your Downloads folder 
+```cd ~/Downloads
+```
 
