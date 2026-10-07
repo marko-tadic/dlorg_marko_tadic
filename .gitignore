@@ -22,4 +22,5 @@ tags
 !*/
 !.gitignore
 !README.md
-!Organizer
+!dlorg
+!install.sh
