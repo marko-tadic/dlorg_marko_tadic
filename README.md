@@ -13,15 +13,15 @@ Uses ´inotifywait' to actively monitor the downloads folder for newly created f
 
 **Smart Categorization:**
 Automatically routes files into 9 distinct directories:
-`docs` (Word, Excel, PowerPoint, etc.),
-`images` (JPG, PNG, GIF, SVG, etc.),
-`pdfs` (PDF documents),
-`text` (TXT, MD, RTF),
-`videos` (MP4, MKV, AVI, etc.),
-`audio` (MP3, WAV, FLAC, etc.),
-`installers` (EXE, MSI, DEB),
-`archives` (ZIP, TAR, RAR, 7z),
-`code` (Python, JS, HTML, C++, etc.)
+* `docs` (Word, Excel, PowerPoint, etc.),
+* `images` (JPG, PNG, GIF, SVG, etc.),
+* `pdfs` (PDF documents),
+* `text` (TXT, MD, RTF),
+* `videos` (MP4, MKV, AVI, etc.),
+* `audio` (MP3, WAV, FLAC, etc.),
+* `installers` (EXE, MSI, DEB),
+* `archives` (ZIP, TAR, RAR, 7z),
+* `code` (Python, JS, HTML, C++, etc.)
 
 **Loop Protection:**
 Automatically ignores changes inside its destination subdirectories to prevent endless processing loops.
