@@ -1,5 +1,5 @@
 # dlorg_marko_tadic
-echo -e "\e[4Linux lab 2026\e[0m"
+### Linux Lab 2026 - Marko Tadic
 
 # Download Organizer
 ## dlorg
@@ -13,14 +13,14 @@ Uses ´inotifywait' to actively monitor the downloads folder for newly created f
 
 **Smart Categorization:**
 Automatically routes files into 9 distinct directories:
-`docs` (Word, Excel, PowerPoint, etc.)
-`images` (JPG, PNG, GIF, SVG, etc.)
-`pdfs` (PDF documents)
-`text` (TXT, MD, RTF)
-`videos` (MP4, MKV, AVI, etc.)
-`audio` (MP3, WAV, FLAC, etc.)
-`installers` (EXE, MSI, DEB)
-`archives` (ZIP, TAR, RAR, 7z)
+`docs` (Word, Excel, PowerPoint, etc.),
+`images` (JPG, PNG, GIF, SVG, etc.),
+`pdfs` (PDF documents),
+`text` (TXT, MD, RTF),
+`videos` (MP4, MKV, AVI, etc.),
+`audio` (MP3, WAV, FLAC, etc.),
+`installers` (EXE, MSI, DEB),
+`archives` (ZIP, TAR, RAR, 7z),
 `code` (Python, JS, HTML, C++, etc.)
 
 **Loop Protection:**
@@ -35,7 +35,19 @@ Before running the script in **Git Bash**, make sure you have `inotify-tools` pa
 
 ## Installation & Setup
 
-1. Navigate to your Downloads folder 
-```cd ~/Downloads
+To install, clone the repository and run the script:
+```bash
+git clone https://github.com/marko-tadic/dlorg_marko_tadic.git
+./install.sh
 ```
+## The install script
+```
+mkdir -p ~/.local/bin ~/.config/systemd/user/
+cp dlorg ~/.local/bin/dlorg
+chmod +x ~/.local/bin/dlorg
+cp organizer-startup.service ~/.config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable --now organizer-startup.service
+```
+*Note: If it does not work, try running `chmod +x install.sh`
 
