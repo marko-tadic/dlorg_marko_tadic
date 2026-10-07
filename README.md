@@ -27,11 +27,11 @@ Automatically routes files into 9 distinct directories:
 Automatically ignores changes inside its destination subdirectories to prevent endless processing loops.
 
 **Safe Validation:** 
-Checks to ensure incoming files are valid beofore attempting to categorize them.
+Checks to ensure incoming files are valid before attempting to categorize them.
 
 ## Prerequisites
 
-Before running the script in **Git Bash**, make sure you have `inotify-tools` package installed in your enviroment to provide the `inotifywait` command.
+Before running the script in **Git Bash**, make sure you have `inotify-tools` package installed in your environment to provide the `inotifywait` command.
 
 ## Installation & Setup
 
