@@ -62,4 +62,4 @@ systemctl --user enable --now organizer-startup.service
 ![Moving files](dlorg2.png)  
 
 
-* Good luck and have fun being organized!
+Good luck and have fun being organized!
