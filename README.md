@@ -42,20 +42,15 @@ bash dlorg_marko_tadic/install.sh
 ```
 
 ## The install script
-```
-mkdir -p ~/.local/bin ~/.config/systemd/user/
-cp dlorg ~/.local/bin/dlorg
-chmod +x ~/.local/bin/dlorg
-cp organizer-startup.service ~/.config/systemd/user/
-systemctl --user daemon-reload
-systemctl --user enable --now organizer-startup.service
-```
+
+![Install script](Pictures/install.png)
+
 *Note: If it does not work, try running `chmod +x install.sh`
 
 ## Done!
-* How it should look once you're done and run ´dlorg´! 
+* How it should look once you're done and run `dlorg`! 
 
-![How it should look once you run ´dlorg´](Pictures/dlorg.png)  
+![How it should look once you run dlorg](Pictures/dlorg.png)  
 
 
 * And when moving files: 

@@ -20,6 +20,4 @@ WantedBy=default.target
 EOF
 systemctl --user daemon-reload
 systemctl --user enable --now organizer-startup.service
-echo "Done! Dlorg is now running in the background"
-
- 
+echo "Done! Dlorg is now running in the background" 
