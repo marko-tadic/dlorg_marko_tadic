@@ -54,6 +54,6 @@ systemctl --user enable --now organizer-startup.service
 
 ## Done!
 
-![How it should look once you run ´dlorg´]('Screenshot 2026-10-08 134846.png')
+![How it should look once you run ´dlorg´](dlorg.png)
 
 Good luck and have fun being organized!
