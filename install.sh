@@ -3,7 +3,7 @@
 cd "$(dirname "$0")"
 echo "Installing dlorg..."
 
-mkdir -p $HOME/.local/bin ~/.config/systemd/user/
+mkdir -p $HOME/.local/bin $HOME/.config/systemd/user/
 cp dlorg $HOME/.local/bin/dlorg
 chmod +x $HOME/.local/bin/dlorg
 cat << 'EOF' > "$HOME/.config/systemd/user/organizer-startup.service"
