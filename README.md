@@ -40,7 +40,6 @@ To install, clone the repository and run the script:
 git clone https://github.com/marko-tadic/dlorg_marko_tadic.git
 ./install.sh
 ```
-To start the organizer "manually" simple type ´dlorg´ in your terminal
 ## The install script
 ```
 mkdir -p ~/.local/bin ~/.config/systemd/user/
@@ -53,7 +52,9 @@ systemctl --user enable --now organizer-startup.service
 *Note: If it does not work, try running `chmod +x install.sh`
 
 ## Done!
-
+How it should look once you're done and run ´dlorg´!
 ![How it should look once you run ´dlorg´](dlorg.png)
 
+And when moving files:
+![Moving files](dlorg2.png")
 Good luck and have fun being organized!
