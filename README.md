@@ -38,8 +38,9 @@ Before running the script in **Git Bash**, make sure you have `inotify-tools` pa
 To install, clone the repository and run the script:
 ```bash
 git clone https://github.com/marko-tadic/dlorg_marko_tadic.git
-./install.sh
+bash dlorg_marko_tadic/install.sh
 ```
+
 ## The install script
 ```
 mkdir -p ~/.local/bin ~/.config/systemd/user/
