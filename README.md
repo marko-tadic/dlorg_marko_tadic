@@ -52,12 +52,12 @@ systemctl --user enable --now organizer-startup.service
 *Note: If it does not work, try running `chmod +x install.sh`
 
 ## Done!
-* How it should look once you're done and run ´dlorg´! \
+* How it should look once you're done and run ´dlorg´! 
 
 ![How it should look once you run ´dlorg´](dlorg.png)  
 
 
-* And when moving files: \
+* And when moving files: 
   
 ![Moving files](dlorg2.png)  
 
