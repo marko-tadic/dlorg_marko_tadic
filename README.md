@@ -9,7 +9,7 @@
 ## Features
 
 **Real-time monitoring:** 
-Uses ´inotifywait' to actively monitor the downloads folder for newly created files or files moved to the directory and processes them instantly.
+Uses ´inotifywait´ to actively monitor the downloads folder for newly created files or files moved to the directory and processes them instantly.
 
 **Smart Categorization:**
 Automatically routes files into 9 distinct directories:
@@ -40,6 +40,7 @@ To install, clone the repository and run the script:
 git clone https://github.com/marko-tadic/dlorg_marko_tadic.git
 ./install.sh
 ```
+To start the organizer "manually" simple type ´dlorg´ in your terminal
 ## The install script
 ```
 mkdir -p ~/.local/bin ~/.config/systemd/user/
@@ -51,3 +52,8 @@ systemctl --user enable --now organizer-startup.service
 ```
 *Note: If it does not work, try running `chmod +x install.sh`
 
+## Done!
+
+![How it should look once you run ´dlorg´]('Screenshot 2026-10-08 134846.png')
+
+Good luck and have fun being organized!
