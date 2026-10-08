@@ -54,12 +54,12 @@ systemctl --user enable --now organizer-startup.service
 ## Done!
 * How it should look once you're done and run ´dlorg´! 
 
-![How it should look once you run ´dlorg´](dlorg.png)  
+![How it should look once you run ´dlorg´](Pictures/dlorg.png)  
 
 
 * And when moving files: 
   
-![Moving files](dlorg2.png)  
+![Moving files](Pictures/dlorg2.png)  
 
 
 Good luck and have fun being organized!
