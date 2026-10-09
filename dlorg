@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
-
+# Target directory
 TARGET_DIR="$HOME/Downloads"
-
+# Create a directory if it doesn't exist. If it already exists, -p skips it without error.
 mkdir -p "$TARGET_DIR"/{docs,images,text,pdfs,videos,audio,archives,installers,code,other}
-
+# Define the main file-processing function. Full file path from the first argument and the fule name from the second argument
 process_file() {
     local FILE_PATH="$1"
     local FILE_NAME="$2"
-    
+# Extract the extension by removing the longest match from the left and converts the extension to lowercase for reliable matching    
     local EXT="${FILE_NAME##*.}"
     EXT="${EXT,,}"
-
+# Categorize the file based on its extension
 case "$EXT" in
     docx|doc|xlsx|xls|pptx|ppt|odt|rtf)
         DEST="docs"
@@ -43,15 +43,15 @@ case "$EXT" in
         DEST="other"
         ;;
 esac
-
+# Ensure the specific destination folder exists before moving files, otherwise creates it
 mkdir -p "$TARGET_DIR"/$DEST
-
+# Checks if the file still exists at the path before proceeding. Hides error messages and logs the operation to the terminal.
     if [ -f "$FILE_PATH" ]; then
         mv "$FILE_PATH" "$TARGET_DIR/$DEST/" 2>/dev/null
-        echo "Moved: $FILENAME -> $DEST/"
+        echo "Moved: $FILE_NAME -> $DEST/"
     fi
 }
-
+# Organizing existing files by looping through all files directly under the target directory, verifying it's a regular file and not a directory and sends the file path and its base name to the processing function and logs the operation to the terminal.a
 echo "Organizing existing files in $TARGET_DIR..."
 for FILE in "$TARGET_DIR"/*; do
     if [ -f "$FILE" ]; then
@@ -59,7 +59,10 @@ for FILE in "$TARGET_DIR"/*; do
     fi
 done
 
+# Watching the target directory in real time for finished writes and file moves.
 echo "Monitoring $TARGET_DIR for new files..."
-inotifywait -m -e close_write -e moved_to  --exclude "(docs|images|pdfs|text|videos|audio|installers|archives|code|other)" --format '%f' "$TARGET_DIR" | while read -r FILENAME; do
-    process_file "$TARGET_DIR/$FILENAME" "$FILENAME"
+inotifywait -m -e close_write -e moved_to --exclude "(docs|images|pdfs|videos|audio|installers|archives|code|other)" --format "%w%f" "$TARGET_DIR" | while IFS= read -r FULL_PATH; do
+    FILENAME=$(basename "$FULL_PATH")
+    process_file "$FULL_PATH" "$FILENAME"
 done
+                           

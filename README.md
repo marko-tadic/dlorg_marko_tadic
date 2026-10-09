@@ -12,7 +12,7 @@
 Uses ´inotifywait´ to actively monitor the downloads folder for newly created files or files moved to the directory and processes them instantly.
 
 **Smart Categorization:**
-Automatically routes files into 9 distinct directories:
+Automatically routes files into 10 distinct directories:
 * `docs` (Word, Excel, PowerPoint, etc.),
 * `images` (JPG, PNG, GIF, SVG, etc.),
 * `pdfs` (PDF documents),
@@ -22,6 +22,7 @@ Automatically routes files into 9 distinct directories:
 * `installers` (EXE, MSI, DEB),
 * `archives` (ZIP, TAR, RAR, 7z),
 * `code` (Python, JS, HTML, C++, etc.)
+* `other` A catch-all folder for unrecognized extensions or files without an extension.
 
 **Loop Protection:**
 Automatically ignores changes inside its destination subdirectories to prevent endless processing loops.
@@ -40,6 +41,11 @@ To install, clone the repository and run the script:
 git clone https://github.com/marko-tadic/dlorg_marko_tadic.git
 bash dlorg_marko_tadic/install.sh
 ```
+This will also enable the Organizer Startup Service, which means the script will continue to work in the background every time you log in. 
+To check if it is currently enabled, type `systemctl --user status organizer-script.service` in your terminal.
+And to enable it: `systemctl --user enable organizer-script.service`
+To stop the service: `systemctl --user stop organizer-script.service`
+Lastly, to kill the script: `pkill -f dlorg`
 
 ## The install script
 
